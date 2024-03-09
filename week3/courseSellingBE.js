@@ -7,6 +7,7 @@ let ADMINS = [];
 let USERS = [];
 let COURSES = [];
 
+// Middleware for admin authentication
 const adminAuthentication = (req, res, next) => {
   const { username, password } = req.headers;
 
@@ -18,6 +19,7 @@ const adminAuthentication = (req, res, next) => {
   }
 };
 
+// Middleware for user authentication
 const userAuthentication = (req, res, next) => {
   const { username, password } = req.headers;
   const user = USERS.find(u => u.username === username && u.password === password);
